@@ -15,16 +15,17 @@ import java.io.IOException;
  */
 public class App
 {
-    public static final String url="https://www.imdb.com/name/nm0005351/";
+    public static final String url="https://www.imdb.com/name/nm0000115/";
     public static void main( String[] args )
     {
         if(getStatusConnectionCode(url)==200){
 
             Document dc= getHtmlDocument(url);
            //System.out.println(dc);
-            Elements entradas=dc.select("a.ipc-md-link--entity");
+            Elements entradas=dc.select("a.ipc-md-link--entity"); //Busqueda de las peliculas en el jason puercote
+            Elements entradas1=dc.select("a.href");
             System.out.println(entradas.size());
-            for(Element elem : entradas){
+            for(Element elem : entradas1){
                 System.out.println(elem.text());
             }
         }
