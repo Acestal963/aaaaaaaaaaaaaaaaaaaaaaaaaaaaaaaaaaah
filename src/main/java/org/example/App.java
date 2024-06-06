@@ -22,11 +22,12 @@ public class App
 
             Document dc= getHtmlDocument(url);
            //System.out.println(dc);
-            Elements entradas=dc.select("a.ipc-md-link--entity"); //Busqueda de las peliculas en el jason puercote
-            Elements entradas1=dc.select("a.href");
+            Elements entradas=dc.select("a.ipc-primary-image-list-card__title"); //Busqueda de las peliculas en el jason principal (puercote)
+            Elements entradas1=dc.select("a");
             System.out.println(entradas.size());
-            for(Element elem : entradas1){
+            for(Element elem : entradas){
                 System.out.println(elem.text());
+                System.out.println("URL: "+"https://www.imdb.com"+elem.attr("href"));
             }
         }
     }
